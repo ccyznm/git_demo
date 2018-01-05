@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ES6选项卡</title>
+		<style type="text/css">
+			* {
+				padding:0;
+				margin:0;
+			}
+			button{
+				width: 50px;
+			}
+			div {
+				width:200px;
+				height:200px;
+				display:none;
+				background:red;
+				color:#ffffff;
+			}
+			div:first-of-type {
+				display:block;
+			}
+		</style>
+	</head>
+	<body>
+		<button>一</button>
+		<button>二</button>
+		<button>三</button>
+		<div>选项一</div>
+		<div>选项二</div>
+		<div>选项三</div>
+		<script type="text/javascript">
+			
+			[...document.querySelectorAll("button")].find((x,y) => {
+   				 x['onclick'] = () => {
+    	    [...document.querySelectorAll("div")].find(d => {
+        	    d.style.display = "none"
+     	  		 });
+       		[...document.querySelectorAll("div")][y].style.display = "block"
+   				 }
+			})
+		</script>
+	</body>
+</html>
